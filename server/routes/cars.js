@@ -142,32 +142,6 @@ router.get("/delete", (req, res, next) => {
       res.redirect("/cars");
     }
    });
-  //  car.remove({ _id: id }, (err) => {
-  //    if (err) {
-  //      console.log(err);
-  //      res.end(err);
-  //    } else {
-  //      //refresh book list
-  //      res.redirect("/cars");
-  //    }
-  //  });
-  
-  // car.deleteMany({Price:
-  //     {$gt: 10, $lt:20}
-  //   }, (err) => {
-  //     if (err) {
-  //       console.log(err);
-  //       res.end(err);
-  //     } else {
-  //       //refresh list
-  //       res.redirect("/cars");
-  //     }
-  //   }
-  // );
-  //res.redirect("/cars");
-  //console.log(result);
-
-
 });
 
 module.exports = router;
