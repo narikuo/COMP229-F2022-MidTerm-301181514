@@ -8,7 +8,7 @@
       <!-- ------------------------ -->
       <!-- FIX THE ADD BUTTON BELOW -->
       <!-- ------------------------ -->
-      <a href="" class="btn btn-primary"
+      <a href="/cars/add" class="btn btn-primary" style="margin-bottom: 16px; margin-top: 16px;"
         ><i class="fa fa-plus"></i> Add a car</a
       >
       <br />
@@ -20,8 +20,8 @@
               <th class="text-center">Car Model</th>
               <th class="text-center">Category</th>
               <th class="text-center">Price</th>
-              <th class="text-center"></th>
-               </tr>
+              <th class="text-center">Edit</th>
+            </tr>
           </thead>
           <tbody>
             <!-- Template Row -->
@@ -37,8 +37,9 @@
                 <!-- ------------------------ -->
                 <!-- ADD the EDIT BUTTON HERE -->
                 <!-- ------------------------ -->
+                <a href="/cars/edit/<%= cars[count]._id %>" class="btn btn-info">
+                  <i class="fa fa-edit"></i> Edit</a>
               </td>
-
               
             </tr>
             <% } %>
@@ -46,10 +47,47 @@
         </table>
       </div>
       <!-- ------------------------ -->
-                <!--FIX the DELETE BUTTON HERE -->
-                <!-- ------------------------ -->
-      <a href="" class="btn btn-warning btn-sm">
-        <i class="fas fa-trash"></i> Delete</a>
+      <!--FIX the DELETE BUTTON HERE -->
+      <!-- ------------------------ -->
+      <div>
+        <form method="get" class="form" action="/cars/delete" style="width:400px">
+          <h3>DELETE</h3>
+          <div class="from-row form-group">
+            <label for="nameTextField">Car Name</label>
+            <input
+                    type="text"
+                    class="form-control"
+                    id="nameTextField"
+                    placeholder=""
+                    name="carName"
+                  />
+          </div>
+          <div class="form-row row form-group">
+            <div class="form-group col-md-6 ">
+              <label for="priceTextField">Price Range (Min):</label>
+              <input
+                  type="text"
+                  class="form-control"
+                  id="priceTextField"
+                  placeholder="min"
+                  name="minPrice"
+                />
+            </div>
+            <div class="form-group col-md-6">
+              <label for="priceTextField" class="form-label">Price Range (Max):</label>
+              <input
+                  type="text"
+                  class="form-control"
+                  id="priceTextField"
+                  placeholder="max"
+                  name="maxPrice"
+                />
+            </div>
+          </div>
+          <button class="btn btn-warning" type="submit"><i class="fa fa-trash"></i> Delete</button>
+        </form>
+      </div>
+      
     </main>
       <div class="col-md-offset-1 col-md-10 text-center">
         <ul class="pagination pagination-lg pager" id="myPager"></ul>
