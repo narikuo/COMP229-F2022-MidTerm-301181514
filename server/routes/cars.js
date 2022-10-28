@@ -111,7 +111,7 @@ router.get("/delete", (req, res, next) => {
    let maxPrice = req.query.maxPrice;
    console.log("deleteMany Price Range=", minPrice, ", ", maxPrice, ", ", carName)
    var filterSmart = {}
-   if(minPrice >= 0 && maxPrice >= 0){
+   if( minPrice !="" && maxPrice !="" && minPrice >= 0 && maxPrice >= 0){
       filterSmart ={
         'Price': {
           '$gte': minPrice, 
@@ -131,6 +131,7 @@ router.get("/delete", (req, res, next) => {
         '$eq':carName
       }}
    }
+   console.log("filterString= ", filterSmart);
 
    car.deleteMany(filterSmart,(err, result) => {
     if (err) {
@@ -138,7 +139,7 @@ router.get("/delete", (req, res, next) => {
       res.end(err);
     } else {
       //refresh book list
-      console.log("deleteMany result=", result)
+      console.log("deleteMany result.deletedCount=", result.deletedCount)
       res.redirect("/cars");
     }
    });
